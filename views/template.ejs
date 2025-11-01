@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Result - Asian International University</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f7f7f7;
+            color: #000;
+        }
+
+        .container {
+            background: #fff;
+            border: 1px solid #ccc;
+            max-width: 900px;
+            margin: auto;
+            padding-left: 20px;
+            padding-right: 20px;
+            box-shadow: 0 0 10px rgba(245, 243, 243, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            color: #034ea2;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            color: #ee7e1a;
+        }
+
+
+
+        .sub-header {
+            text-align: center;
+            font-size: 14px;
+            color: #444;
+            margin-top: 5px;
+        }
+
+        .section-title {
+            background: #ee7e1a;
+            color: white;
+            text-align: center;
+            width: 167px;
+            margin-left: 379px;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            font-weight: 400;
+            padding: 8px;
+        }
+
+
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+
+        th,
+        td {
+            /* border: 1px solid #ccc; */
+            padding: 8px;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        th {
+            background: #ee7e1a;
+            /* color: white; */
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .footer p {
+            margin: 5px 0;
+        }
+
+        .note {
+            font-size: 12px;
+            color: #555;
+        }
+
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+                background: white;
+                color: black;
+            }
+
+            @page {
+                size: A4;
+                padding: 0mm !important;
+                margin: 10mm !important;
+            }
+
+            .container {
+                box-sizing: border-box !important;
+                width: 100%;
+                margin: auto;
+                padding: 10px;
+                page-break-after: always;
+            }
+
+            .respo {
+                width: 200px !important;
+            }
+
+            .header img {
+                width: 100%;
+                height: auto;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                page-break-inside: auto;
+            }
+
+            table,
+            th,
+            td {
+                border: 1px solid #302188;
+            }
+
+            th,
+            td {
+                padding: 6px;
+                text-align: left;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            .print-btn {
+                display: none;
+            }
+
+            .marksheet table tr {
+                page-break-inside: avoid;
+                page-break-after: auto;
+            }
+
+            /* .marksheet table tr:last-child {
+                border-bottom: 1px solid #000;
+            } */
+
+            table .first_tr td:nth-of-type(1) {
+                width: 150px !important;
+                /* font-size: 10px !important; */
+            }
+
+            table .first_tr td:nth-of-type(2) {
+                width: 280px !important;
+
+            }
+
+            table .first_tr td:nth-of-type(3) {
+                width: 150px !important;
+
+            }
+
+            table .second_tr td:nth-of-type(1) {
+                width: 150px !important;
+                /* font-size: 10px !important; */
+            }
+
+            table .second_tr td:nth-of-type(2) {
+                width: 90px !important;
+                /* font-size: 10px !important; */
+            }
+
+            table .second_tr td:nth-of-type(4) {
+                width: 83px !important;
+                /* font-size: 10px !important; */
+            }
+
+            table .second_tr td:nth-of-type(5) {
+                width: 151px !important;
+                /* font-size: 10px !important; */
+            }
+
+            .marksheet {
+                margin-top: 10px!important;
+            }
+        }
+
+        .print-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background: #034ea2;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .orange {
+            background-color: #ee7e1a;
+        }
+
+        .marksheet {
+            width: 100%;
+            max-width: 1100px;
+            /* border: 1px solid #302188; */
+            margin: auto;
+            height: 100%;
+        }
+
+
+
+        .header-row {
+            background-color: #f27c1e;
+            color: white;
+            font-weight: 500;
+            text-align: center;
+        }
+
+
+        .data-col,
+        .footer-cell {
+            flex: 2;
+        }
+
+        */ .footer-row {
+            /* background-color: #f4f4f4; */
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .footer-cell.total {
+            border: underline;
+            flex: 3;
+            justify-content: flex-end;
+            padding-right: 27px;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            font-weight: 500;
+            font-size: 16px;
+            border-top: 1px solid #302188;
+        }
+
+
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            table-layout: fixed;
+        }
+
+        th,
+        td {
+            border-left: 1px solid #302188;
+            border-right: 1px solid #302188;
+            border-top: none;
+            border-bottom: none;
+            padding: 6px;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        tr:first-child th {
+            background-color: #EC7E1C;
+            color: white;
+            border-top: 1px solid #302188;
+        }
+
+        tr:last-child td {
+            border-bottom: 1px solid #302188;
+        }
+
+        .wide-col {
+            text-align: left;
+        }
+    </style>
+</head>
+
+
+<body>
+    <!-- <button class="print-btn" onclick="window.location.href='/download-template'">Print Result</button> -->
+
+
+    <% if (isPDF) { %>
+        <button class="print-btn" onclick="window.location.href='/download-template'">Print</button>
+        <% } %>
+
+            <!-- <button class="print-btn" onclick="window.print()">Print</button> -->
+
+            <div class="container">
+                <div class="header">
+                    <img src="http://localhost:3001/views/ll.jpg" style="height:auto;width: 100%;">
+                </div>
+
+                <table border="1" cellspacing="0" cellpadding="9"
+                    style="border-collapse: collapse;margin-top: 2px; margin-bottom: -1px; width: 100%; font-family: Arial, sans-serif; font-size: 14px;">
+                    <tr class="first_tr">
+                        <td
+                            style="background-color: #EC7E1C; color: white; font-weight: 500; border-bottom: 1px solid #302188; width: 180px ; text-align: left;">
+                            NAME OF THE CANDIDATE</td>
+                        <td style="border-bottom: 1px solid #302188; width: 20%; text-align: left;width: 307px ;"
+                            class="respo">
+                            <%= name %>
+                        </td>
+                        <td
+                            style="background-color: #EC7E1C; color: white; font-weight: 500;border-bottom: 1px solid #302188;width: 190px; text-align: left;">
+                            ENROLLMENT NUMBER</td>
+                        <td style="border-bottom: 1px solid #302188; text-align: left;" colspan="3">
+                            <%= enrollment %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td
+                            style="background-color: #EC7E1C; color: white; font-weight: 500; border-bottom: 1px solid #302188; width: 200px; text-align: left;">
+                            FATHER' NAME</td>
+                        <td style="border-bottom: 1px solid #302188; width: 307px; text-align: left;">
+                            <%= father %>
+                        </td>
+                        <td
+                            style="background-color: #EC7E1C; color: white; font-weight: 500; border-bottom: 1px solid #302188; width: 200px; text-align: left;">
+                            MOTHER'S NAME</td>
+                        <td colspan="3" style="border-bottom: 1px solid #302188; text-align: left;">
+                            <%= mother %>
+                        </td>
+                    </tr>
+
+                    <table border="" cellspacing="0" cellpadding="6"
+                        style="  margin-bottom: 2px; margin-top: 0; width: 100%; font-family: Arial, sans-serif; font-size: 14px; border-top: 1px solid rgb(34, 3, 206);">
+                        <tr class="second_tr">
+                            <td
+                                style="background-color: #EC7E1C; color: white; font-weight: 500;border-bottom: 1px solid #302188; text-align: left; width: 180px;">
+                                ROLL NUMBER</td>
+                            <td style="border-bottom: 1px solid #302188; width: 10%; text-align: left;">
+                                <%= roll %>
+                            </td>
+                            <td
+                                style="background-color:  #EC7E1C; color: white; font-weight: 500; text-align: left;border-bottom: 1px solid #302188 ; width: 80px;">
+                                SEMESTER</td>
+                            <td style="border-bottom: 1px solid #302188 ;text-align: left;  width: 110px;">
+                                <%= semester %>
+                            </td>
+                            <td
+                                style="background-color: #EC7E1C; color: white; font-weight: 400;border-bottom: 1px solid #302188; text-align: left; width: 191px;">
+                                EXAMINATION</td>
+                            <td style="border-bottom: 1px solid #302188 ;text-align: left;">
+
+                                <%= exam %>
+                            </td>
+                        </tr>
+                        </tr>
+
+                        <td
+                            style="background-color: #EC7E1C; color: white; font-weight: 500;border-bottom: 1px solid #302188;text-align: start;">
+                            COURSE NAME</td>
+                        <td colspan="5" style="border-bottom: 1px solid #302188;text-align: start;">
+                            <%= course %>
+                        </td>
+                        </tr>
+                    </table>
+
+                </table>
+
+                <div class="marksheet">
+                    <table>
+                        <tr>
+                            <th style="width: 13%;">SUBJECT CODE</th>
+                            <th style="width: 40%;">SUBJECT TITLE</th>
+                            <th style="font-size: 11px; font-weight: normal;">CREDITS</th>
+                            <th style="font-size: 11px; font-weight: normal;">MAXIMUM MARKS</th>
+                            <th style="font-size: 11px; font-weight: normal;">MARKS OBTAINED</th>
+                            <th style="font-size: 11px; font-weight: normal;">GRADE</th>
+                            <th style="font-size: 11px; font-weight: normal;">GRADE POINT</th>
+                            <th style="font-size: 11px; font-weight: normal;">CREDIT POINT</th>
+                        </tr>
+
+                        <% if (subjects && subjects.length> 0) { %>
+                            <% subjects.forEach(subject=> { %>
+                                <tr>
+                                    <td>
+                                        <%= subject.code %>
+                                    </td>
+                                    <td class="wide-col">
+                                        <%= subject.title %>
+                                    </td>
+                                    <td>
+                                        <%= subject.credits %>
+                                    </td>
+                                    <td>
+                                        <%= subject.maxMarks %>
+                                    </td>
+                                    <td>
+                                        <%= subject.obtained %>
+                                    </td>
+                                    <td>
+                                        <%= subject.grade %>
+                                    </td>
+                                    <td>
+                                        <%= subject.gradePoint %>
+                                    </td>
+                                    <td>
+                                        <%= subject.creditPoint %>
+                                    </td>
+                                </tr>
+                                <% }) %>
+                                    <% } %>
+
+                                        <tr style="height: 300px;">
+                                            <td></td>
+                                            <td class="wide-col"></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+
+                                        <tr style="background-color: white; border-top: 1px solid #302188">
+                                            <td></td>
+                                            <td class="wide-col" style="text-align: right;">TOTAL</td>
+                                            <td>
+                                                <%= totalCredits %>
+                                            </td>
+                                            <td>
+                                                <%= totalMax %>
+                                            </td>
+                                            <td>
+                                                <%= totalObtained %>
+                                            </td>
+                                            <td></td>
+                                            <td>
+                                                <%= totalGradePoints %>
+                                            </td>
+                                            <td>
+                                                <%= totalCreditPoints %>
+                                            </td>
+                                        </tr>
+
+                                        <tr style="background-color: white; border-top: 1px solid #302188">
+                                            <td colspan="8" style="text-align: left;">
+                                                RESULT <span style="margin-left: 15px;">:</span>
+                                                <span style="margin-left: 100px;">
+                                                    <%= result %>
+                                                </span>
+                                                <span style="margin-left: 15px;"></span>
+                                                <span style="margin-left: 400px;">SGPA</span> : <%= sgpa %>
+                                            </td>
+                                        </tr>
+                    </table>
+
+                    <div style="width: 100%; font-family: Arial, sans-serif; font-size: 12px; line-height: 1.5;">
+                        <div style="float: left; width: 65%;">
+                            <p style="margin: 0;"><strong>Note:</strong> University takes utmost care in finalisation of
+                                result. However, if error<br>
+                                <span style=" padding-left: 35px;"> detected at a later stage, University may rectify
+                                    the result accordingly.</span>
+                            </p>
+                            <p style="margin: 8px 0 0 0; padding-left: 35px;">
+                                In case of any problem, please contact at: info@aiu.edu.in with your details<br>
+                                i.e. Enrollment Number, Name and Father's Name.
+                            </p>
+                        </div>
+
+                        <div style="float: right; width: 30%; text-align: right;">
+                            <p style="margin: 0;">Controller of Examinations</p>
+                            <p style="margin: 0;">Asian International University</p>
+                            <p style="margin: 0;">Manipur</p>
+                        </div>
+
+                        <div style="clear: both; text-align: center; padding: 20px;">
+                            <p style="margin-top: 40px;">This is a computer generated copy, doesn't require signature or
+                                stamp</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</body>
+
+
+</html>

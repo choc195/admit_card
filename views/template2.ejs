@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Result - Asian International University</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f7f7f7;
+            color: #000;
+        }
+
+        .container {
+            background: #fff;
+            border: 1px solid #ccc;
+            max-width: 900px;
+            margin: auto;
+            padding-left: 20px;
+            padding-right: 20px;
+            box-shadow: 0 0 10px rgba(245, 243, 243, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            color: #034ea2;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            color: #ee7e1a;
+        }
+
+    
+
+        .sub-header {
+            text-align: center;
+            font-size: 14px;
+            color: #444;
+            margin-top: 5px;
+        }
+
+        .section-title {
+            background: #ee7e1a;
+            color: white;
+            text-align: center;
+            width: 167px;
+            margin-left: 379px;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            font-weight: 400;
+            padding: 8px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 16px;
+            margin-bottom: 20px;
+        }
+
+        .info-grid div {
+            padding: 6px 10px;
+            background: #f0f0f0;
+            border-left: 4px solid #302188;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+
+        th,
+        td {
+            /* border: 1px solid #ccc; */
+            padding: 8px;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        th {
+            background: #ee7e1a;
+            /* color: white; */
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .footer p {
+            margin: 5px 0;
+        }
+
+        .note {
+            font-size: 12px;
+            color: #555;
+        }
+
+        @media print {
+            body {
+                background: white;
+                margin: 0;
+            }
+
+            .print-btn {
+                display: none;
+            }
+
+            .container {
+                box-shadow: none;
+                border: none;
+            }
+        }
+
+        .print-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background: #034ea2;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .orange {
+            background-color: #ee7e1a;
+        }
+
+        .marksheet {
+            width: 100%;
+            max-width: 1100px;
+            /* border: 1px solid #302188; */
+            margin: auto;
+            height: 100%;
+        }
+
+        .header-row,
+        .data-row,
+        .footer-row {
+            display: flex;
+        }
+
+        .header-row {
+            background-color: #f27c1e;
+            color: white;
+            /* font-weight: 500; */
+            text-align: center;
+        }
+
+        .header-col,
+        .data-col,
+        .footer-cell {
+            border-left: 1px solid #302188;
+            border-right: 1px solid #302188;
+            padding: 6px 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .header-col:first-child,
+        .data-col:first-child,
+        .footer-cell:first-child {
+            border-left: none;
+        }
+
+        .header-col.code,
+        .data-col.code {
+            width: 140px;
+            justify-content: flex-start;
+
+        }
+
+        .header-col.title,
+        .data-col.title {
+            flex: 18;
+            justify-content: flex-start;
+            padding-left: 10px;
+        }
+
+
+        .data-col,
+        .footer-cell {
+            flex: 2;
+        }
+
+        .footer-row {
+            /* background-color: #f4f4f4; */
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .footer-cell.total {
+            border: underline;
+            flex: 3;
+            justify-content: flex-end;
+            padding-right: 27px;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            font-weight: 500;
+            font-size: 16px;
+            border-top: 1px solid #302188;
+        }
+
+        .result span {
+            color: green;
+        }
+
+        .sgpa span {
+            color: blac;
+        }
+
+        .marksheet .data-row .size {
+            font-size: 10px;
+            background-color: red;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            table-layout: fixed;
+        }
+
+        th,
+        td {
+            border-left: 1px solid #302188;
+            border-right: 1px solid #302188;
+            border-top: none;
+            border-bottom: none;
+            padding: 6px;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        tr:first-child th {
+            background-color: #EC7E1C;
+            color: white;
+            border-top: 1px solid #302188;
+        }
+
+        tr:last-child td {
+            border-bottom: 1px solid #302188;
+        }
+
+        .wide-col {
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <button class="print-btn" onclick="window.print()">Print Result</button> -->
+    <div class="container">
+        <div class="header">           
+            <img src="http://localhost:3001/views/ll.jpg" style="height:auto;width: 100%;"> 
+        </div>
+
+       
+
+        <table border="1" cellspacing="0" cellpadding="6"
+            style="border-collapse: collapse;margin-top: 2px; margin-bottom: 2px; width: 100%; font-family: Arial, sans-serif; font-size: 14px;">
+            <tr>
+                <td style="background-color: #EC7E1C; color: white; font-weight: 500; border-bottom: 1px solid #302188;
+                width: 200px ; text-align: left;">
+                    NAME OF THE CANDIDATE</td>
+                <td style="border-bottom: 1px solid #302188; width: 20%; text-align: left;">AJAY KUMAR</td>
+                <td style="background-color: #EC7E1C; color: white; font-weight: 500;border-bottom: 1px solid #302188;width: 200px; text-align: left;">
+                    ENROLLMENT NUMBER</td>
+                <td style="border-bottom: 1px solid #302188; text-align: left;" colspan="3">219113027022</td>
+            </tr>
+            <tr>
+                <td style="background-color: #EC7E1C; color: white; font-weight: 500; border-bottom: 1px solid #302188; width: 200px; text-align: left;">
+                    FATHER</td>
+                <td colspan="" style="border-bottom: 1px solid #302188; width: 20%; text-align: left;">RAMNARESH RAM</td>
+                <td style="background-color: #EC7E1C; color: white; font-weight: 500; border-bottom: 1px solid #302188; width: 200px; text-align: left;" >  MOTHER'S NAME</td>
+                <td colspan="3" style="border-bottom: 1px solid #302188; text-align: left;">RAMSAKHIYA DEVI</td>
+             
+            </tr>
+            <tr>
+                <td style="background-color: #EC7E1C; color: white; font-weight: 500;border-bottom: 1px solid #302188; text-align: left;">
+                    ROLL NUMBER</td>
+                <td style="border-bottom: 1px solid #302188; width: 10%; text-align: left;">2468130621</td>
+                <td style="background-color: #EC7E1C; color: white; font-weight: 500; text-align: left;  margin-right: 40px;">SEMESTER</td>
+                <td style="border-bottom: 1px solid #302188 ;text-align: left;">SIXTH</td>
+
+                <td style="background-color: #EC7E1C; color: white; font-weight: 400;border-bottom: 1px solid #302188 ;padding-right: 20px; text-align: left;">
+                    EXAM</td>
+                <td style="border-bottom: 1px solid #302188 ;text-align: left;" >JUNE 2024</td>
+              
+
+
+            </tr>
+
+            <tr>
+                <td style="background-color: #EC7E1C; color: white; font-weight: 500;border-bottom: 1px solid #302188;text-align: left;">
+                    COURSE NAME</td>
+                <td colspan="5" style="border-bottom: 1px solid #302188">BACHELOR OF SCIENCE(HONOURS) (CHEMISTRY)</td>
+            </tr>
+        </table>
+
+
+        <div class="marksheet">
+            <table>
+                <tr>
+                    <th style="width: 10%;">SUBJECT CODE</th>
+                    <th style="width: 40%;">SUBJECT TITLE</th>
+                    <th style="font-size: 11px;">CREDITS</th>
+                    <th style="font-size: 11px;">MAXIMUM MARKS</th>
+                    <th style="font-size: 11px;">MARKS OBTAINED</th>
+                    <th style="font-size: 11px;">GRADE</th>
+                    <th style="font-size: 11px;">GRADE POINT</th>
+                    <th style="font-size: 11px;">CREDIT POINT</th>
+                </tr>
+                <tr>
+                    <td>BSCCHE0601</td>
+                    <td class="wide-col">INORGANIC CHEMISTRY-IV</td>
+                    <td>4</td>
+                    <td>100</td>
+                    <td>70</td>
+                    <td>A</td>
+                    <td>8</td>
+                    <td>32</td>
+                </tr>
+                <tr>
+                    <td>BSCCHE0601</td>
+                    <td class="wide-col">INORGANIC CHEMISTRY-IV</td>
+                    <td>4</td>
+                    <td>100</td>
+                    <td>70</td>
+                    <td>A</td>
+                    <td>8</td>
+                    <td>32</td>
+                </tr>
+                <tr>
+                    <td>BSCCHE0601</td>
+                    <td class="wide-col">INORGANIC CHEMISTRY-IV</td>
+                    <td>4</td>
+                    <td>100</td>
+                    <td>70</td>
+                    <td>A</td>
+                    <td>8</td>
+                    <td>32</td>
+                </tr>
+             
+              
+                <tr>
+                    <td>BSCCHE0601</td>
+                    <td class="wide-col">INORGANIC CHEMISTRY-IV</td>
+                    <td>4</td>
+                    <td>100</td>
+                    <td>70</td>
+                    <td>A</td>
+                    <td>8</td>
+                    <td>32</td>
+                </tr>
+                <tr>
+                    <td>BSCCHE0601</td>
+                    <td class="wide-col">INORGANIC CHEMISTRY-IV</td>
+                    <td>4</td>
+                    <td>100</td>
+                    <td>70</td>
+                    <td>A</td>
+                    <td>8</td>
+                    <td>32</td>
+                </tr>
+               
+                <tr>
+                    <td>BSCCHE0601</td>
+                    <td class="wide-col">INORGANIC CHEMISTRY-IV</td>
+                    <td>4</td>
+                    <td>100</td>
+                    <td>70</td>
+                    <td>A</td>
+                    <td>8</td>
+                    <td>32</td>
+                </tr>
+                <tr style="height: 300px;">
+                    <td></td>
+                    <td class="wide-col"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td> </td>
+                </tr>
+
+
+                <tr style=" background-color: white; border-top: 1px solid #302188">
+                    <td></td>
+                    <td class="wide-col" style="text-align: right;">TOTAL</td>
+                    <td>4</td>
+                    <td>100</td>
+                    <td>70</td>
+                    <td></td>
+                    <td>8</td>
+                    <td>32</td>
+                </tr>
+                <tr style=" background-color: white; border-top: 1px solid #302188">
+                    <td colspan="8" style="text-align: left;">RESULT <span style="margin-left: 15px;">:</span>
+                        <span style="margin-left: 100px;">PASS</span>
+                        <span style="margin-left: 15px;"></span> <span style="margin-left: 400px;">SGPA</span>
+                        <span>:7.59</span>
+
+                    </td>
+                    </td>
+
+                    <!-- <td></td> -->
+                    <!-- <td class="wide-col"></td -->
+
+                </tr>
+            </table>
+            <div style="width: 100%; font-family: Arial, sans-serif; font-size: 12px; line-height: 1.5;">
+
+                <div style="float: left; width: 65%;">
+                  <p style="margin: 0;">
+                    <strong>Note:</strong> University takes utmost care in finalisation of result. However, if error<br>
+                    <span style=" padding-left: 35px;"> detected at a later stage, University may rectify the result accordingly.</span>
+                  </p>
+                  <p style="margin: 8px 0 0 0; padding-left: 35px;">
+                    In case of any problem, please contact at: info@aiu.edu.in with your details<br>
+                    i.e. Enrollment Number, Name and Father's Name.
+                  </p>
+                </div>
+              
+                <div style="float: right; width: 30%; text-align: right;">
+                  <p style="margin: 0;">Controller of Examinations</p>
+                  <p style="margin: 0;">Asian International University</p>
+                  <p style="margin: 0;">Manipur</p>
+                </div>
+              
+                <div style="clear: both; text-align: center; padding: 20px;">
+                  <p style="margin-top: 40px;">This is a computer generated copy, doesn't require signature or stamp</p>
+                </div>
+              
+              </div>
+        </div>
+</body>
+
+</html>
