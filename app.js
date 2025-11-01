@@ -8,7 +8,8 @@ const axios = require("axios");
 const ejs = require("ejs");
 const pdf = require("html-pdf");
 
-const port = 3001;
+const port = process.env.PORT || 3000;
+
 
 let formData = null; // Temporary storage to hold the form data
 
