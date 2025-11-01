@@ -7,6 +7,7 @@ const app = express();
 const axios = require("axios");
 const ejs = require("ejs");
 const pdf = require("html-pdf");
+require("dotenv").config();
 
 const port = process.env.PORT || 3000;
 
@@ -25,7 +26,7 @@ app.use("/views", express.static(path.join(__dirname, "views")));
 // MongoDB connection
 mongoose
   .connect(
-    "mongodb+srv://starcaptain25:SO0lnk4kD5PDmKDY@powerwebdata.a18cs.mongodb.net/?retryWrites=true&w=majority&appName=PowerWebData",
+    process.env.MONGO_URI,
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then(() => console.log("Connected to MongoDB"))
